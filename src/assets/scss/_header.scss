@@ -1,0 +1,101 @@
+$primary-color: #e0b0c8;
+$logo-text-color: #333; 
+$nav-text-color: #000;
+$login-color: #1D4ED8;
+$button-gradient: linear-gradient(
+  90deg,
+  #1D4ED8 0%,
+  #5AD7FE 100%
+);
+$hover-color: darken($nav-text-color, 10%);
+
+header {
+  background-color: $primary-color;
+  padding: 20px 0;
+  top: 0;
+  position: sticky;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 35px;
+      height: auto;
+    }
+
+    span {
+      font-size: 22px;
+      font-weight: bold;
+      color: $logo-text-color;
+      margin-left: 10px;
+    }
+  }
+
+  .nav {
+    .nav-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+
+      .nav-item {
+        min-width: 30px;
+        display: flex;
+        margin: 0 10px;
+        position: relative;
+        font-size: 16px;
+        color: $nav-text-color;
+        cursor: pointer;
+
+        .arrow {
+          font-size: 12px;
+          margin-left: 5px;
+        }
+
+        .language-icon {
+          margin-right: 5px;
+          font-size: 18px;
+        }
+
+        .login {
+          font-size: 16px;
+          margin-right: 20px;
+          color: $login-color;
+          text-decoration: none;
+
+          &:hover {
+            color: $hover-color;
+          }
+        }
+
+        .cta {
+          padding: 10px 20px;
+          background: $button-gradient;
+          border: none;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.3s;
+
+          &:hover {
+            background: lighten(#007fff, 10%);
+          }
+        }
+
+        &:hover {
+          color: $hover-color;
+        }
+      }
+    }
+  }
+}

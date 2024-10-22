@@ -1,0 +1,97 @@
+// Variables
+$primary-color: #333;
+$secondary-color: #007fff;
+$price-color: #000;
+$background-gradient: linear-gradient(90deg, #007fff 0%, #6a00ff 100%);
+$button-gradient: linear-gradient(90deg, #d63031, #0984e3);
+$live-color: #2ecc71; // Green for live auction
+
+// Card Styling
+.bid-card {
+  max-width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.bid-card__image-container {
+  position: relative;
+}
+
+.bid-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.bid-card__favorite {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.bid-card__content {
+  padding: 16px;
+}
+
+.bid-card__status {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: $live-color;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.bid-card__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: $primary-color;
+}
+
+.bid-card__details p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.bid-card__price {
+  font-weight: bold;
+  font-size: 18px;
+  color: $price-color;
+}
+
+.bid-card__timer {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.bid-card__button {
+  width: 100%;
+  padding: 10px;
+  background: $button-gradient;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: darken(#007fff, 10%);
+  }
+}
