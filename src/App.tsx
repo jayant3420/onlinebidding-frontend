@@ -1,14 +1,8 @@
-import Header from "./component/Header/Header";
-import Banner from "./component/Home/Banner";
-import BidCard from "./component/Bid/BidCard";
+import HomeWrapper from "./pages/home/HomeWrapper";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Banner />
-      <BidCard />
-    </>
+    <HomeWrapper />
   );
 }
 

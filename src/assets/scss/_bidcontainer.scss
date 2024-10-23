@@ -1,0 +1,10 @@
+.auction-container{
+    padding: 30px 20px;
+    z-index: -1;
+}
+
+.auction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}

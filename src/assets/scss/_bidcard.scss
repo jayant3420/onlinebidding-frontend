@@ -14,7 +14,9 @@ $live-color: #2ecc71; // Green for live auction
   overflow: hidden;
   background-color: #fff;
   font-family: Arial, sans-serif;
-  margin: 20px;
+  z-index: -10;
+  // padding: 10px;
+  // margin: 20px;
 }
 
 .bid-card__image-container {
@@ -54,8 +56,7 @@ $live-color: #2ecc71; // Green for live auction
 }
 
 .bid-card__title {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 13px;
   margin-bottom: 10px;
   color: $primary-color;
 }
