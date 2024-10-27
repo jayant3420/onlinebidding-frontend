@@ -160,5 +160,75 @@
       "current_bid": 950,
       "ends_in": "2 days 11 hrs 35 minutes"
     }
+  ],
+
+  "reviews": [
+    {
+      "id": 1,
+      "image": "Review1",
+      "reviewCount": 3,
+      "comment": "These headphones are a game-changer for my daily commute. The noise-canceling feature works like a charm.",
+      "reviewedBy": "Kristin Watson",
+      "reviewedAt": "March 14, 2001"
+    },
+    {
+      "id": 2,
+      "image": "Review2",
+      "reviewCount": 5,
+      "comment": "I'm blown away by the sound clarity these headphones offer.",
+      "reviewedBy": "Kristin Watson",
+      "reviewedAt": "March 14, 2001"
+    },
+    {
+      "id": 3,
+      "image": "Review3",
+      "reviewCount": 2,
+      "comment": "As a frequent flyer, these headphones have become my must-have travel companion.",
+      "reviewedBy": "Kristin Watson",
+      "reviewedAt": "March 14, 2001"
+    }
+  ],
+
+  "bidHistory": [
+    {
+      "id": 1,
+      "user": "YOU",
+      "bidAmount": 165
+    },
+    {
+      "id": 2,
+      "user": "The Floor",
+      "bidAmount": 157
+    },
+    {
+      "id": 3,
+      "user": "Internet Bidder",
+      "bidAmount": 145
+    },
+    {
+      "id": 4,
+      "user": "The Floor",
+      "bidAmount": 140
+    },
+    {
+      "id": 5,
+      "user": "Internet Bidder",
+      "bidAmount": 132
+    },
+    {
+      "id": 6,
+      "user": "The Floor",
+      "bidAmount": 111
+    },
+    {
+      "id": 7,
+      "user": "Internet Bidder",
+      "bidAmount": 109
+    },
+    {
+      "id": 8,
+      "user": "The Floor",
+      "bidAmount": 105
+    }
   ]
 }

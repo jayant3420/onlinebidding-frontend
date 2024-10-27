@@ -1,0 +1,29 @@
+.icon-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  background-color: white;
+  color: #3c4043;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+  cursor: pointer !important;
+
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .label {
+    font-weight: 500;
+  }
+}

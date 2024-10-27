@@ -6,9 +6,9 @@ function BidContainer() {
   return (
     <>
       <div className="auction-container">
-        <Welcome />
+        <Welcome name="Allivia" />
         <div className="auction-grid">
-          {AuctionItems.auctions.map((item, index: number) => {
+          {AuctionItems.auctions.map((item) => {
             return <BidCard item={item} />;
           })}
         </div>

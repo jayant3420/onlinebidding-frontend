@@ -1,0 +1,177 @@
+$button-background-gradient: linear-gradient(
+  79.69deg,
+  #1d4ed8 -0.64%,
+  #5ad7fe 107.84%
+);
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0.5rem 0rem;
+}
+
+.login-form-container {
+  padding: 15px 50px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  .input-group {
+    position: relative;
+    text-align: left;
+    label {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      border-radius: 5px;
+      border: 1px solid #ced4da;
+    }
+
+    .error-msg {
+      font-size: 0.75rem;
+      color: red;
+      margin-top: 0.25rem;
+    }
+
+    .show-password {
+      position: absolute;
+      right: 1em;
+      top: 2.2rem;
+      font-size: 0.85rem;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .forgot-password {
+      position: absolute;
+      color: #1d4ed8;
+      font-size: 1rem;
+      right: 0.5rem;
+      top: 0;
+    }
+  }
+
+  .keep-signed-in {
+    display: flex;
+    align-items: center;
+
+    input {
+      margin-right: 0.5rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+  }
+
+  .btn-continue {
+    padding: 0.75rem;
+    background: $button-background-gradient;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    display: block;
+    text-align: center;
+  }
+
+  .or-sign-up {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 1rem auto;
+  }
+
+  .social-login {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .signup-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  }
+}
+
+.login-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 100vh;
+  background-color: #fff;
+  z-index: -10;
+}
+
+.login-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .sign-up-success-container {
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0px;
+
+    .uncover-deal {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .signup-banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0px;
+
+      img {
+        height: 500px;
+      }
+    }
+
+    .dive-into {
+      color: #235bdb;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .login-now button {
+      background: $button-background-gradient;
+      color: rgb(255, 255, 255);
+    }
+  }
+}
+
+.login-banner-container {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

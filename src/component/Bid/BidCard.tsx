@@ -1,4 +1,8 @@
-function BidCard({ item }: any) {
+type BidCareType = {
+  item: any;
+  isBidNowButtonShow?: boolean;
+};
+function BidCard({ item, isBidNowButtonShow = true }: BidCareType) {
   return (
     <div className="bid-card">
       <div className="bid-card__image-container">
@@ -33,7 +37,9 @@ function BidCard({ item }: any) {
 
         <p className="bid-card__timer">Ends in : {item.ends_in}</p>
 
-        <button className="bid-card__button">Bid now &gt;</button>
+        {isBidNowButtonShow && (
+          <button className="bid-card__button">Bid now &gt;</button>
+        )}
       </div>
     </div>
   );

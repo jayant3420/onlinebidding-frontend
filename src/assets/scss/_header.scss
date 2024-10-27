@@ -1,19 +1,24 @@
 $primary-color: #e0b0c8;
-$logo-text-color: #333; 
+$logo-text-color: #333;
 $nav-text-color: #000;
-$login-color: #1D4ED8;
-$button-gradient: linear-gradient(
-  90deg,
-  #1D4ED8 0%,
-  #5AD7FE 100%
-);
+$login-color: #1d4ed8;
+$button-gradient: linear-gradient(90deg, #1d4ed8 0%, #5ad7fe 100%);
 $hover-color: darken($nav-text-color, 10%);
 
-header {
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
   background-color: $primary-color;
   padding: 20px 0;
   top: 0;
-  position: sticky;
+  position: fixed;
+  width: 100%;
 
   .container {
     display: flex;
@@ -95,6 +100,102 @@ header {
         &:hover {
           color: $hover-color;
         }
+      }
+    }
+  }
+}
+
+.home-banner {
+  padding: 10px 50px;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.login-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 6rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+
+  .logo {
+    margin-right: 1rem;
+
+    img {
+      width: 40px; // Adjust size according to the logo
+    }
+  }
+
+  .site-name {
+    h1 {
+      font-size: 1.5rem;
+      color: #000;
+      font-weight: 400;
+
+      span {
+        font-weight: 700;
+        color: #000;
+      }
+    }
+  }
+}
+
+.main-content {
+  margin-top: 88px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 90px;
+  right: 130px;
+  width: 250px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+
+    .user-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .email {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  }
+
+  .dropdown-menu {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+
+    li {
+      padding: 8px 16px;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #f1f5f9;
       }
     }
   }

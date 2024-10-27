@@ -1,12 +1,10 @@
-// Variables
 $primary-color: #333;
 $secondary-color: #007fff;
 $price-color: #000;
 $background-gradient: linear-gradient(90deg, #007fff 0%, #6a00ff 100%);
 $button-gradient: linear-gradient(90deg, #d63031, #0984e3);
-$live-color: #2ecc71; // Green for live auction
+$live-color: #2ecc71;
 
-// Card Styling
 .bid-card {
   max-width: 320px;
   border-radius: 8px;
@@ -15,12 +13,6 @@ $live-color: #2ecc71; // Green for live auction
   background-color: #fff;
   font-family: Arial, sans-serif;
   z-index: -10;
-  // padding: 10px;
-  // margin: 20px;
-}
-
-.bid-card__image-container {
-  position: relative;
 }
 
 .bid-card__image {
