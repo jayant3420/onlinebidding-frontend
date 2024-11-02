@@ -1,0 +1,125 @@
+@import "_variables.scss";
+
+.submit-form-container {
+  padding: 20px;
+
+  .form-heading-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(234, 232, 232);
+
+    .f-heading {
+      span:first-child {
+        font-weight: 600;
+      }
+    }
+
+    .cross-icon {
+      cursor: pointer;
+    }
+  }
+
+  .form-body {
+    width: 100%;
+    .bid-input-main {
+      margin-bottom: 20px;
+      .label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .bid-input {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 8px 12px;
+        width: 100%;
+
+        .currency-symbol {
+          font-size: 16px;
+          margin-right: 4px;
+          color: #333;
+        }
+
+        input {
+          border: none;
+          outline: none;
+          width: 100%;
+          font-size: 16px;
+          text-align: left;
+          padding: 0 8px;
+          color: #333;
+          appearance: none;
+        }
+
+        button {
+          background: none;
+          border: none;
+          font-size: 16px;
+          cursor: pointer;
+          color: #333;
+          padding: 0 8px;
+          outline: none;
+          align-items: center;
+          line-height: 1px;
+
+          &.decrement {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .form-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .bid-info {
+      display: flex;
+      font-size: 18px;
+      color: #333;
+
+      &:not(:last-child) {
+        justify-content: space-between;
+      }
+
+      .label {
+        font-weight: 400;
+      }
+
+      .value {
+        font-weight: 600;
+        color: #000;
+      }
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: end;
+      button {
+        background: $button-background-gradient;
+        color: white;
+        width: 100px;
+      }
+    }
+  }
+}
+
+.success-modal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 80px;
+
+    div:nth-child(2){
+        font-weight: 600;
+    }
+}

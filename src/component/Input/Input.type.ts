@@ -2,7 +2,7 @@ export interface InputProps {
   label: string;
   type: string;
   placeholder?: string;
-  value: string;
+  value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
   showPasswordToggle?: boolean;
@@ -19,4 +19,10 @@ export interface PasswordInputProps extends InputProps {
 export interface NonPasswordInputProps extends InputProps {
   type: Exclude<string, "password">;
   isForgotPwdShow?: never;
+}
+
+export interface BidFormInputProps {
+  label: string;
+  bid: number;
+  updateBidAmount: (bidAmount: number, type: "INCREMENT" | "DECREMENT", updateType: "STRAIGHT_BID" | "MAX_BID") => void;
 }

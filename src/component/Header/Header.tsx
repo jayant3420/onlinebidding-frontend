@@ -70,14 +70,6 @@ function Header() {
                 <img src={DownArrow} alt="Logo" />
               </span>
             </li>
-            {/* <li className="nav-item">
-              <a href="#" className="login">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <button className="cta">Get Started</button>
-            </li> */}
             <li
               className="nav-item"
               onClick={handleToggleClick}

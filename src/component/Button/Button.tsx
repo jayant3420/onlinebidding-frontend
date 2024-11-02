@@ -7,6 +7,7 @@ const Button: React.FC<IconButtonProps> = ({
   onClick,
   className,
   buttonType,
+  afterIcon
 }) => {
   return (
     <button
@@ -14,8 +15,9 @@ const Button: React.FC<IconButtonProps> = ({
       onClick={onClick}
       type={buttonType ? buttonType : "button"}
     >
-      {icon && <img src={icon} alt="social login icon" />}
+      {icon && <img src={icon} alt="before icon" />}
       <span className="label">{label}</span>
+      {afterIcon && <img src={afterIcon} alt="afterIcon icon" />}
     </button>
   );
 };

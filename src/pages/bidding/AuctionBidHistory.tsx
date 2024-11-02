@@ -1,9 +1,13 @@
 import Button from "../../component/Button/Button";
 import DummyData from "../../db.json";
 import SubmitBidModal from "../../component/modal/SubmitBidModal";
+import { useState } from "react";
 
 function AuctionBidHistory() {
-  function handleClick() {}
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  function handleClick() {
+    setIsModalOpen((prev) => !prev);
+  }
 
   return (
     <>
@@ -23,7 +27,10 @@ function AuctionBidHistory() {
           <Button label="Bid now" onClick={handleClick} />
         </div>
       </div>
-      <SubmitBidModal />
+      <SubmitBidModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </>
   );
 }
