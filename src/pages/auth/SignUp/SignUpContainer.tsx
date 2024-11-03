@@ -105,7 +105,7 @@ export function SignUpForm() {
           value={state.password.value}
           onChange={onChange}
           errorMessage={state.password.error}
-          showPasswordToggle={false}
+          showPasswordToggle={true}
           id="password"
           autoComplete="off"
         />
@@ -146,11 +146,3 @@ function SignUpContainer() {
 }
 
 export default SignUpContainer;
-
-// function SignUpContainer() {
-//   return (
-//     <input />
-//   )
-// }
-
-// export default SignUpContainer;

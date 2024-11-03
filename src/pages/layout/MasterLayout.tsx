@@ -7,9 +7,6 @@ function MasterLayout({ children }: any) {
         <Header />
         <div className="main-content">
           {children}
-          {/* {!isBannerShow && <Banner />}
-          <BidContainer />
-          <Footer /> */}
         </div>
       </div>
     </>

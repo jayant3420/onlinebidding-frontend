@@ -7,8 +7,8 @@ function SignUpWrapper() {
     <>
       <div className="login-wrapper">
         <SignUpHeader />
-        {/* <SignUpContainer /> */}
-        <SignUpSuccess />
+        <SignUpContainer />
+        {/* <SignUpSuccess /> */}
       </div>
     </>
   );

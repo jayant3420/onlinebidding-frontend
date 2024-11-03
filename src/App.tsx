@@ -1,21 +1,28 @@
-import HomeWrapper from "./pages/home/HomeWrapper";
 import LoginWrapper from "./pages/auth/Login/LoginWrapper";
 import SignUpWrapper from "./pages/auth/SignUp/SignUpWrapper";
-import AuctionPreview from "./pages/bidding/AuctionPreview";
-import AuctionItemDetailContainer from "./pages/bidding/AuctionItemDetailContainer";
-import MasterLayout from "./pages/layout/MasterLayout";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import {
+  BrowserRouter as Router,
+  Routes as Switch,
+  Route,
+  Navigate
+} from "react-router-dom";
+import Routes from "./routing/Routes";
+import AuthContainer from "./pages/auth/AuthContainer";
 
 function App() {
+  console.log("api key ==>>", process.env.REACT_APP_PUBLIC_API_KEY);
   return (
-    <MasterLayout>
-      <AuctionItemDetailContainer />
-      {/* <HomeWrapper /> */}
-    </MasterLayout>
-    // <HomeWrapper />
-    // <LoginWrapper />
-    // <SignUpWrapper />
-    // <AuctionPreview />
+    <Router>
+      <Switch>
+        <Route path="/" element={<Routes />} />
+        <Route path="/auth" element={<AuthContainer />}>
+          <Route path="login" element={<LoginWrapper />} />
+          <Route path="sign-up" element={<SignUpWrapper />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Switch>
+    </Router>
   );
 }
 

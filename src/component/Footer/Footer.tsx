@@ -1,16 +1,16 @@
-import GenricAuctionLogo from "../../assets/icons/genricAuctionLogo.svg";
+import VectorLogo from "../../assets/icons/vector.svg";
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__logo">
-          <img
-            src={GenricAuctionLogo}
-            alt="Genix Auctions Logo"
-            className="footer__logo-image"
-          />
-          <span>Genix Auctions</span>
+        <img
+          src={VectorLogo}
+          alt="Genix Auctions Logo"
+          className="footer__logo-image"
+        />
+        <span>Genix Auctions</span>
         </div>
 
         <div className="footer__links">

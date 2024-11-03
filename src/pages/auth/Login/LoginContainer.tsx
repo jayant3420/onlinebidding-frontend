@@ -35,8 +35,10 @@ export function LoginForm() {
       >
         <Input
           label="Email Address"
-          type="email"
-          placeholder="hello@example.com"
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Enter Email"
           value={email.value}
           onChange={(e) =>
             setEmail({
@@ -45,11 +47,14 @@ export function LoginForm() {
             })
           }
           required
+          autoComplete="off"
         />
 
         <Input
           label="Password"
           type="password"
+          name="password"
+          id="password"
           placeholder="Password"
           value={password.value}
           onChange={(e) =>
@@ -60,6 +65,7 @@ export function LoginForm() {
           }
           errorMessage={password.error}
           showPasswordToggle={true}
+          autoComplete="off"
           // isForgotPwdShow={true}
         />
 

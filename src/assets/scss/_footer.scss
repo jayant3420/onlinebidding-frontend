@@ -1,11 +1,10 @@
 .footer {
-    background-color: #121826; /* Dark background */
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
+  background-color: #121826; /* Dark background */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
 
-.footer__content {
+  .footer__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,71 +12,65 @@
     flex-wrap: wrap;
 
     .footer__logo {
-        display: flex;
-        align-items: center;
+      display: flex;
+      align-items: center;
+
+      span {
+        font-size: 18px;
+      }
     }
 
     .footer__logo-image {
-        width: 40px;
-        margin-right: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer__content {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-.footer__logo span {
-    font-size: 18px;
-}
-
-.footer__links {
-    display: flex;
-    justify-content: center;
-}
-
-.footer__column {
-    list-style: none;
-    margin: 0 20px;
-
-    li {
-        margin-bottom: 10px;
-    }
-}
-
-.footer__column li a,
-.footer__social a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    transition: color 0.3s;
-}
-
-.footer__column li a:hover,
-.footer__social a:hover {
-    color: #357AE8; /* Blue hover effect */
-}
-
-.footer__social {
-    a {
-        margin: 0 10px;
+      width: 40px;
+      margin-right: 10px;
     }
 
-    i {
-        font-size: 24px;
-    }
-}
+    .footer__links {
+      display: flex;
+      justify-content: center;
 
-.footer__bottom {
+      .footer__column {
+        list-style: none;
+        margin: 0 20px;
+
+        li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  .footer__bottom {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid #2b3646;
     font-size: 14px;
 
     p {
-        margin: 0;
+      margin: 0;
     }
+  }
+}
+
+.footer__column li a,
+.footer__social a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.footer__column li a:hover,
+.footer__social a:hover {
+  color: #357ae8; /* Blue hover effect */
+}
+
+.footer__social {
+  a {
+    margin: 0 10px;
+  }
+
+  i {
+    font-size: 24px;
+  }
 }

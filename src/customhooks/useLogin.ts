@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Constant from "../constant";
+import axios from "axios";
 
 interface LoginData {
   email: string;
@@ -27,21 +28,18 @@ export const useLogin = (): UseLoginReturn => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(Constant.BASE_URL.LOCALHOST, {
+      console.log("api key ==>>", process.env.REACT_APP_PUBLIC_API_KEY);
+      const response = await axios({
+        url: `${Constant.BASE_URL.LOCALHOST}/api/v1/user/login`,
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "x-api-key": process.env.REACT_APP_PUBLIC_API_KEY,
         },
-        body: JSON.stringify(data),
+        data,
       });
 
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
-
-      const result = await response.json();
-      console.log("Login successful:", result);
-      return result;
+      console.log("response ==>>", response);
+      return response.data.result;
     } catch (err) {
       setError((err as Error).message);
     } finally {
