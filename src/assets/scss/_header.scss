@@ -107,9 +107,9 @@ $hover-color: darken($nav-text-color, 10%);
 
       .dropdown {
         position: absolute;
-        top: 90px;
-        right: 130px;
-        width: 250px;
+        top: 68px;
+        right: 0px;
+        width: 350px;
         background-color: #fff;
         border: 1px solid #e0e0e0;
         border-radius: 8px;
@@ -132,6 +132,7 @@ $hover-color: darken($nav-text-color, 10%);
 
           .name {
             font-weight: bold;
+            text-transform: capitalize;
           }
 
           .email {

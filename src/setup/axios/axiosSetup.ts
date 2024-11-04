@@ -4,6 +4,7 @@ import axios, {
   AxiosError,
 } from "axios";
 import constant from "../../constant";
+import { getter } from "../../util/storage";
 
 const baseURL = constant.BASE_URL.LOCALHOST;
 const headers = {
@@ -16,9 +17,11 @@ const axiosInstance: AxiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((req: InternalAxiosRequestConfig) => {
-  const token = "";
+  const user = getter("user");
+  const userJson = user ? JSON.parse(user) : null;
+  const accessToken = userJson.accessToken;
   if (req.headers) {
-    req.headers.set("Authorization", `Bearer ${token}`);
+    req.headers.set("Authorization", `${accessToken}`);
   }
   return req;
 });
@@ -36,5 +39,5 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
+console.log(axiosInstance);
 export default axiosInstance;

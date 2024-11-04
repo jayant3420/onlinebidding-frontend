@@ -1,9 +1,9 @@
 import Button from "../../component/Button/Button";
-import DummyData from "../../db.json";
 import SubmitBidModal from "../../component/modal/SubmitBidModal";
 import { useState } from "react";
+import { BidHistoryProp } from "./Auction.type";
 
-function AuctionBidHistory() {
+function AuctionBidHistory({ bidHistory }: BidHistoryProp) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   function handleClick() {
     setIsModalOpen((prev) => !prev);
@@ -13,12 +13,12 @@ function AuctionBidHistory() {
     <>
       <div className="bid-history">
         <ul>
-          {DummyData.bidHistory.map((item, index) => {
+          {bidHistory.map((item, index) => {
             if (index === 0) {
               return <li key={item.id}>{`Your bid is $${item.bidAmount}`}</li>;
             } else {
               return (
-                <li key={item.id}>{`${item.user} bids $${item.bidAmount}`}</li>
+                <li key={item.id}>{`${item.user.firstName} bids $${item.bidAmount}`}</li>
               );
             }
           })}

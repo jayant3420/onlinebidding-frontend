@@ -1,11 +1,21 @@
-import HomeWrapper from "../pages/home/HomeWrapper";
 import MasterLayout from "../pages/layout/MasterLayout";
+import { AuthProvider } from "../context/AuthContext";
+import {
+  Outlet,
+  useLocation,
+  Navigate
+} from "react-router-dom";
 
 function Routes() {
+  const location = useLocation();
   return (
-    <MasterLayout>
-      <HomeWrapper isBannerShow={true} />
-    </MasterLayout>
+    <AuthProvider>
+      <MasterLayout>
+        {
+          location.pathname === '/product' ? <Navigate to="/product/list" /> : <Outlet />
+        }
+      </MasterLayout>
+    </AuthProvider>
   );
 }
 

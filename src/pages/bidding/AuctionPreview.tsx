@@ -3,7 +3,7 @@ import HomeWrapper from "../home/HomeWrapper";
 function AuctionPreview() {
   return (
     <>
-      <HomeWrapper />
+      {/* <HomeWrapper /> */}
     </>
   );
 }

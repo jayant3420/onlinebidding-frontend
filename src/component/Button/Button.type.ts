@@ -7,4 +7,5 @@ export interface IconButtonProps {
   className?: string;
   buttonType?: "button" | "submit" | "reset" | undefined;
   afterIcon?: string;
+  [key: string]: any;
 }

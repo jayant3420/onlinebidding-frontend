@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Constant from "../constant";
-import axios from "axios";
-
+import axios, { AxiosError } from "axios";
+import { setter } from "../util/storage";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 interface LoginData {
   email: string;
   password: string;
@@ -19,6 +22,12 @@ interface UseLoginReturn {
 export const useLogin = (): UseLoginReturn => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  console.log("error ==>>", error);
+  const authContext = useContext(AuthContext);
+
+  const setUserDetail = authContext?.setUserDetail || null;
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>,
@@ -28,7 +37,6 @@ export const useLogin = (): UseLoginReturn => {
     setLoading(true);
     setError(null);
     try {
-      console.log("api key ==>>", process.env.REACT_APP_PUBLIC_API_KEY);
       const response = await axios({
         url: `${Constant.BASE_URL.LOCALHOST}/api/v1/user/login`,
         method: "POST",
@@ -38,10 +46,18 @@ export const useLogin = (): UseLoginReturn => {
         data,
       });
 
-      console.log("response ==>>", response);
-      return response.data.result;
+      console.log("response ==>>", response.data.data);
+      setter("user", JSON.stringify(response.data.data));
+
+      if (setUserDetail !== null) setUserDetail(response.data.data);
+
+      navigate("/");
+      // return response.data.data;
     } catch (err) {
-      setError((err as Error).message);
+      console.log(err)
+      const errMsg = (err as AxiosError<{message: string}>)?.response?.data?.message || "An unexpected error occurred";
+      setError(errMsg);
+      toast.error(errMsg)
     } finally {
       setLoading(false);
     }

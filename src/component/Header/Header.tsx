@@ -1,29 +1,39 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import VectorLogo from "../../assets/icons/vector.svg";
 import DownArrow from "../../assets/icons/menuDropdown.svg";
 import LanguageIcon from "../../assets/icons/languageIcon.svg";
 import Avatar from "../../assets/images/Avatar.png";
 import DropDownMenu from "./Dropdown";
-import { getter } from "../../util/storage";
+import { getter, clearStorage } from "../../util/storage";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<any>(null);
-  const isLoggedIn = getter("user");
+  const authContext = useContext(AuthContext);
+  const user = authContext?.user ?? null;
+  const setUserDetail = authContext?.setUserDetail ?? null;
+
+  console.log("user ==>>", user);
+
   const navigate = useNavigate();
 
-  console.log("isLoggedIn ==>>", isLoggedIn);
   const handleToggleClick = () => {
     setIsOpen((prev) => !prev);
   };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      console.log(event.target);
+      console.log("dropdown ref1 ==>>", dropdownRef.current);
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
+        console.log("dropdown ref2 ==>>", dropdownRef.current);
+        console.log("handle outside click called");
         setIsOpen(false);
       }
     };
@@ -34,8 +44,63 @@ function Header() {
     };
   }, []);
 
-  const handleItemClick = () => {
-    setIsOpen(false);
+  // const handleItemClick = (actionItem: string) => {
+  //   setIsOpen(false);
+  // };
+
+  const handleItemClick = (actionItem: string) => {
+    console.log("actionItem ==>>", actionItem);
+    switch (actionItem) {
+      case "VIEW_PROFILE":
+        console.log("Navigating to profile page...");
+        // Add logic to navigate to profile page
+        break;
+      case "SETTINGS":
+        console.log("Opening settings...");
+        // Add logic to open settings
+        break;
+      case "MY_BIDS":
+        console.log("Showing user's bids...");
+        // Add logic to display user's bids
+        break;
+      case "CREDIT_CARDS":
+        console.log("Managing credit cards...");
+        // Add logic to manage credit cards
+        break;
+      case "MY_AUCTIONS":
+        console.log("Viewing my auctions...");
+        // Add logic to view auctions
+        break;
+      case "INVITE_COLLEAGUES":
+        console.log("Inviting colleagues...");
+        // Add logic to invite colleagues
+        break;
+      case "NOTIFICATIONS":
+        console.log("Viewing notifications...");
+        // Add logic to show notifications
+        break;
+      case "COMMUNITY":
+        console.log("Opening community page...");
+        // Add logic to open community page
+        break;
+      case "SUPPORT":
+        console.log("Accessing support...");
+        // Add logic to access support
+        break;
+      case "API":
+        console.log("Navigating to API documentation...");
+        // Add logic to view API documentation
+        break;
+      case "LOG_OUT":
+        console.log("Logging out...");
+        clearStorage();
+        setUserDetail && setUserDetail(null);
+        navigate("/");
+        break;
+      default:
+        console.log("Unknown action");
+    }
+    // setIsOpen(false);
   };
 
   return (
@@ -75,13 +140,20 @@ function Header() {
                 <img src={DownArrow} alt="Logo" />
               </span>
             </li>
-            {isLoggedIn ? (
+            {user ? (
               <li
                 className="nav-item"
                 onClick={handleToggleClick}
                 ref={dropdownRef}
               >
                 <img src={Avatar} alt="logged in user avatar" />
+                {isOpen && (
+                  <DropDownMenu
+                    name={`${user.firstName} ${user.lastName}`}
+                    email={user.email}
+                    handleItemClick={handleItemClick}
+                  />
+                )}
               </li>
             ) : (
               <>
@@ -102,8 +174,6 @@ function Header() {
             )}
           </ul>
         </nav>
-
-        {isOpen && <DropDownMenu handleItemClick={handleItemClick} />}
       </div>
     </header>
   );

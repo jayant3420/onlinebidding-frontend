@@ -5,8 +5,8 @@ type WelcomeNameType = {
 function Welcome({ name }: WelcomeNameType) {
   return (
     <div className="explore-auctions">
-      <span className="explore">{name ? 'Welcome': 'Explore'}</span>
-      <span className="auctions">{name ? name : 'Auctions'}</span>
+      <span className="explore">{name ? "Welcome" : "Explore"}</span>
+      <span className="auctions">{name ? name : "Auctions"}</span>
     </div>
   );
 }

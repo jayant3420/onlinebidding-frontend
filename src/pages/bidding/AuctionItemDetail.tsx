@@ -1,24 +1,17 @@
 import LeftIconSvg from "../../assets/icons/leftIcon.svg";
 import BidCard from "../../component/Bid/BidCard";
+import { useNavigate } from "react-router-dom";
+import { ItemDetailProp } from "./Auction.type";
 
-const item = {
-  id: 1,
-  title: "Sony Black Headphones",
-  image:
-    "https://m.media-amazon.com/images/I/61D4Z3yKPAL._AC_UY327_FMwebp_QL65_.jpg",
-  min_bid: 100,
-  current_bid: 157,
-  ends_in: "1 day 12 hrs 43 minutes",
-};
-
-function AuctionItemDetail() {
+function AuctionItemDetail({ item }: ItemDetailProp) {
+  const navigate = useNavigate();
   return (
-    <div className="item-detail-main">
+    <div className="item-detail-main" onClick={() => navigate(-1)}>
       <div className="back-button">
         <img src={LeftIconSvg} alt="Left Icon" />
         <span>Back to catalog</span>
       </div>
-      <BidCard item={item} isBidNowButtonShow = {false} />
+      <BidCard item={item} isBidNowButtonShow={false} />
     </div>
   );
 }

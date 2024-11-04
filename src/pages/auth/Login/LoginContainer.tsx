@@ -6,6 +6,8 @@ import Button from "../../../component/Button/Button";
 import Apple from "../../../assets/icons/apple.svg";
 import Google from "../../../assets/icons/google.svg";
 import Facebook from "../../../assets/icons/facebook.svg";
+import Loader from "../../../component/Loader/Spinner";
+import { Link } from "react-router-dom";
 
 type InputState = {
   value: string;
@@ -18,7 +20,7 @@ export function LoginForm() {
     value: "",
     error: "",
   });
-  const { handleSubmit, error } = useLogin();
+  const { handleSubmit, loading } = useLogin();
 
   return (
     <div className="login-form-container m-auto">
@@ -66,7 +68,7 @@ export function LoginForm() {
           errorMessage={password.error}
           showPasswordToggle={true}
           autoComplete="off"
-          // isForgotPwdShow={true}
+          isForgotPwdShow={true}
         />
 
         <div className="keep-signed-in">
@@ -74,11 +76,16 @@ export function LoginForm() {
           <label htmlFor="keep-signed-in">Keep me signed in</label>
         </div>
 
-        <Button
-          className="btn-continue"
-          label="Continue"
-          buttonType="submit"
-        />
+        {loading ? (
+          <Loader width={"100%"} textAlign="center" />
+        ) : (
+          <Button
+            className="btn-continue"
+            label="Continue"
+            buttonType="submit"
+            disabled={loading}
+          />
+        )}
 
         <div className="or-sign-up">
           ------------------ or sign in with ------------------
@@ -90,7 +97,7 @@ export function LoginForm() {
         </div>
 
         <p className="signup-text">
-          Don't have an Account? <a href="#">Sign up here</a>
+          Don't have an Account? <Link to="/auth/sign-up">Sign up here</Link>
         </p>
       </form>
     </div>

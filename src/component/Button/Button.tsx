@@ -7,13 +7,15 @@ const Button: React.FC<IconButtonProps> = ({
   onClick,
   className,
   buttonType,
-  afterIcon
+  afterIcon,
+  ...rest
 }) => {
   return (
     <button
       className={`icon-button ${className}`}
       onClick={onClick}
       type={buttonType ? buttonType : "button"}
+      {...rest}
     >
       {icon && <img src={icon} alt="before icon" />}
       <span className="label">{label}</span>
