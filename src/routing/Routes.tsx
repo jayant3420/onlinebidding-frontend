@@ -11,9 +11,10 @@ function Routes() {
   return (
     <AuthProvider>
       <MasterLayout>
-        {
+        {/* {
           location.pathname === '/product' ? <Navigate to="/product/list" /> : <Outlet />
-        }
+        } */}
+        <Outlet />
       </MasterLayout>
     </AuthProvider>
   );

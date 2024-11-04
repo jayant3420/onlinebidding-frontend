@@ -18,7 +18,7 @@ function BidContainer({ user }: any) {
 
   useEffect(() => {
     async function fetchProducts() {
-      const res = await getProductList({ page: 1, pageSize: 10 });
+      const res = await getProductList({ page: 1, pageSize: 20 });
       setProduct(res);
     }
     fetchProducts();

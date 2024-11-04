@@ -1,7 +1,7 @@
 import { useState } from "react";
 import constant from "../constant";
 import axiosInstance from "../setup/axios/axiosSetup";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
 
 type ProductListParamType = {
@@ -19,9 +19,12 @@ export const useProduct = () => {
 
   async function getProductList({ page, pageSize }: ProductListParamType) {
     try {
-      const response = await axiosInstance({
+      const response = await axios({
         url: `${baseURL}/api/v1/product/list`,
         method: "GET",
+        headers: {
+          "x-api-key": process.env.REACT_APP_PUBLIC_API_KEY,
+        },
         params: {
           page,
           pageSize,

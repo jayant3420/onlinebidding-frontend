@@ -5,6 +5,7 @@ import AuctionItemDetailContainer from "./AuctionItemDetailContainer";
 
 function AuctionPageDecider() {
     const authContext = useContext(AuthContext)?.user ?? null;
+    console.log(authContext)
     return authContext ? <AuctionItemDetailContainer /> : <Navigate to="/auth/login" />;
 }
 

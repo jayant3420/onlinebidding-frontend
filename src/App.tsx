@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Home from "./routing/Routes";
 import HomeWrapper from "./pages/home/HomeWrapper";
-import AuctionItemDetailContainer from "./pages/bidding/AuctionItemDetailContainer";
+import AuctionPageDecider from "./pages/bidding/AuctionPageDecider";
 import AuthContainer from "./pages/auth/AuthContainer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -21,13 +21,16 @@ function App() {
         <Switch>
           <Route path="/product" element={<Home />}>
             <Route path="list" element={<HomeWrapper />} />
-            <Route path="detail/:id" element={<AuctionItemDetailContainer />} />
+            <Route path="detail/:id" element={<AuctionPageDecider />} />
           </Route>
+          {/* <Route path="/product" element={<Home />} />
+          <Route path="/product/list" element={<HomeWrapper />} />
+          <Route path="/product/detail/:id" element={<AuctionPageDecider />} /> */}
           <Route path="/auth" element={<AuthContainer />}>
             <Route path="login" element={<LoginWrapper />} />
             <Route path="sign-up" element={<SignUpWrapper />} />
           </Route>
-          <Route path="*" element={<Navigate to="/product" />} />
+          <Route path="*" element={<Navigate to="/product/list" />} />
         </Switch>
       </Router>
       <ToastContainer
