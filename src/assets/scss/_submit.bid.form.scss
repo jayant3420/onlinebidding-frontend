@@ -23,7 +23,7 @@
   .form-body {
     width: 100%;
     .bid-input-main {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       .label {
         font-size: 16px;
         font-weight: bold;
@@ -74,6 +74,12 @@
         }
       }
     }
+
+    .error {
+      display: inline-block;
+      color: red;
+      margin-bottom: 15px;
+    }
   }
 
   .form-footer {
@@ -92,6 +98,7 @@
 
       .label {
         font-weight: 400;
+        font-size: 1rem;
       }
 
       .value {
@@ -113,13 +120,13 @@
 }
 
 .success-modal-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    padding: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 80px;
 
-    div:nth-child(2){
-        font-weight: 600;
-    }
+  div:nth-child(2) {
+    font-weight: 600;
+  }
 }

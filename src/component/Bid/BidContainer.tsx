@@ -1,25 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Welcome from "../Welcome/Welcome";
 import BidCard from "./BidCard";
-import AuctionItems from "../../db.json";
 import { useProduct } from "../../customhooks/useProduct";
 
-interface ProductData {
-  data: Array<unknown>;
-  currentPage: number;
-  totalItems: number;
-  totalPages: number;
-}
-
 function BidContainer({ user }: any) {
-  const [product, setProduct] = useState<ProductData | null>(null);
-  const { getProductList } = useProduct();
-  console.log(product);
+  const { getProductList, product, setProduct } = useProduct();
 
   useEffect(() => {
     async function fetchProducts() {
       const res = await getProductList({ page: 1, pageSize: 20 });
-      setProduct(res);
+      setProduct && setProduct(res);
     }
     fetchProducts();
   }, []);

@@ -23,12 +23,11 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [userDetail, setUserDetail] = useState(null);
   const [isSignupSuccess, setIsSignupSuccess] = useState<boolean>(false);
-  console.log("user ==>>", userDetail);
+
   useEffect(() => {
     if (!userDetail) {
       const userJson = getter("user");
       const user = userJson ? JSON.parse(userJson) : null;
-      console.log("user ==>>", user);
       setUserDetail(user);
     }
   }, []);

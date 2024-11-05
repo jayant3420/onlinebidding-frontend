@@ -25,4 +25,5 @@ export interface BidFormInputProps {
   label: string;
   bid: number;
   updateBidAmount: (bidAmount: number, type: "INCREMENT" | "DECREMENT", updateType: "STRAIGHT_BID" | "MAX_BID") => void;
+  handleBidAmountChange: (value: string) => void;
 }

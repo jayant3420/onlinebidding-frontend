@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import constant from "../constant";
 import axiosInstance from "../setup/axios/axiosSetup";
 import axios, { AxiosError } from "axios";
@@ -13,8 +13,16 @@ type ProductDetailPropType = {
   productId: number;
 };
 
+interface ProductData {
+  data: Array<unknown>;
+  currentPage: number;
+  totalItems: number;
+  totalPages: number;
+}
+
 export const useProduct = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [product, setProduct] = useState<ProductData | null>(null);
   const baseURL = constant.BASE_URL.LOCALHOST;
 
   async function getProductList({ page, pageSize }: ProductListParamType) {
@@ -64,8 +72,10 @@ export const useProduct = () => {
   }
 
   return {
+    loading,
+    product,
+    setProduct,
     getProductList,
     getProductDetail,
-    loading
   };
 };

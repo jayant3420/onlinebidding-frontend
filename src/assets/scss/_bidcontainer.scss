@@ -55,6 +55,11 @@
   }
 
   .bid-history {
+    .bid-history-list {
+      min-height: 400px;
+      overflow-y: scroll;
+    }
+
     ul {
       padding: 20px;
       li:first-child {
@@ -105,5 +110,3 @@
     }
   }
 }
-
-

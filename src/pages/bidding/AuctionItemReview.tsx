@@ -7,7 +7,7 @@ function AuctionItemReview() {
       <div className="review-heading">Reviews</div>
       <div className="review-items">
         {ReviewItems.reviews.map((item: any) => {
-          return <ReviewCard item={item} />;
+          return <ReviewCard item={item} key={item.id} />;
         })}
       </div>
     </div>

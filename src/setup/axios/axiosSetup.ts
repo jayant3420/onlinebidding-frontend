@@ -39,5 +39,5 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-console.log(axiosInstance);
+
 export default axiosInstance;

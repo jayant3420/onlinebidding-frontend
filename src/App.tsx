@@ -23,9 +23,6 @@ function App() {
             <Route path="list" element={<HomeWrapper />} />
             <Route path="detail/:id" element={<AuctionPageDecider />} />
           </Route>
-          {/* <Route path="/product" element={<Home />} />
-          <Route path="/product/list" element={<HomeWrapper />} />
-          <Route path="/product/detail/:id" element={<AuctionPageDecider />} /> */}
           <Route path="/auth" element={<AuthContainer />}>
             <Route path="login" element={<LoginWrapper />} />
             <Route path="sign-up" element={<SignUpWrapper />} />

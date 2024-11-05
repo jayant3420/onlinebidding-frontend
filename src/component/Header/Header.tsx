@@ -8,15 +8,12 @@ import { getter, clearStorage } from "../../util/storage";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<any>(null);
   const authContext = useContext(AuthContext);
   const user = authContext?.user ?? null;
   const setUserDetail = authContext?.setUserDetail ?? null;
-
-  console.log("user ==>>", user);
 
   const navigate = useNavigate();
 
@@ -26,14 +23,10 @@ function Header() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      console.log(event.target);
-      console.log("dropdown ref1 ==>>", dropdownRef.current);
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        console.log("dropdown ref2 ==>>", dropdownRef.current);
-        console.log("handle outside click called");
         setIsOpen(false);
       }
     };
@@ -44,12 +37,7 @@ function Header() {
     };
   }, []);
 
-  // const handleItemClick = (actionItem: string) => {
-  //   setIsOpen(false);
-  // };
-
   const handleItemClick = (actionItem: string) => {
-    console.log("actionItem ==>>", actionItem);
     switch (actionItem) {
       case "VIEW_PROFILE":
         console.log("Navigating to profile page...");
@@ -100,7 +88,6 @@ function Header() {
       default:
         console.log("Unknown action");
     }
-    // setIsOpen(false);
   };
 
   return (

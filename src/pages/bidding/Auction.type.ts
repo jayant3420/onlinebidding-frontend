@@ -29,4 +29,5 @@ export interface ItemDetailProp {
 
 export interface BidHistoryProp {
     bidHistory: BidHistoryItem[];
+    item: ProductDetail;
 }
