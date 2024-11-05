@@ -1,9 +1,6 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Constant from "../constant";
 import axios, { AxiosError } from "axios";
-import { setter } from "../util/storage";
-import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 interface SignUpData {
@@ -44,7 +41,7 @@ export const useSignup = (): UseSignUpReturn => {
   const handleSubmit = async (data: SignUpData) => {
     setLoading(true);
     try {
-      const response = await axios({
+      await axios({
         url: `${Constant.BASE_URL.LOCALHOST}/api/v1/user/sign-up`,
         method: "POST",
         headers: {
@@ -52,12 +49,12 @@ export const useSignup = (): UseSignUpReturn => {
         },
         data,
       });
-
-      console.log("response ==>>", response.data.data);
       return true;
     } catch (err) {
-      console.log(err)
-      const errMsg = (err as AxiosError<{message: string}>)?.response?.data?.message || "An unexpected error occurred";
+      console.log(err);
+      const errMsg =
+        (err as AxiosError<{ message: string }>)?.response?.data?.message ||
+        "An unexpected error occurred";
       toast.error(errMsg);
       return false;
     } finally {

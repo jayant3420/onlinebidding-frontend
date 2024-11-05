@@ -1,9 +1,8 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Constant from "../constant";
 import axios, { AxiosError } from "axios";
 import { setter } from "../util/storage";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 interface LoginData {
   email: string;
@@ -22,10 +21,6 @@ interface UseLoginReturn {
 export const useLogin = (): UseLoginReturn => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  console.log("error ==>>", error);
-  const authContext = useContext(AuthContext);
-
-  const setUserDetail = authContext?.setUserDetail || null;
 
   const navigate = useNavigate();
 
@@ -46,13 +41,9 @@ export const useLogin = (): UseLoginReturn => {
         data,
       });
 
-      console.log("response ==>>", response.data.data);
       setter("user", JSON.stringify(response.data.data));
 
-      if (setUserDetail !== null) setUserDetail(response.data.data);
-
       navigate("/");
-      // return response.data.data;
     } catch (err) {
       console.log(err)
       const errMsg = (err as AxiosError<{message: string}>)?.response?.data?.message || "An unexpected error occurred";

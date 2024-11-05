@@ -1,16 +1,16 @@
 import Banner from "../../component/Home/Banner";
 import BidContainer from "../../component/Bid/BidContainer";
 import Footer from "../../component/Footer/Footer";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { getter } from "../../util/storage";
 
 function HomeWrapper() {
-  const user = useContext(AuthContext)?.user ?? null;
+  const user = getter("user");
+  const userJson = user ? JSON.parse(user) : null;
   return (
     <>
       <div className="main-content">
-        {!user && <Banner />}
-        <BidContainer user = {user} />
+        {!userJson && <Banner />}
+        <BidContainer user = {userJson} />
         <Footer />
       </div>
     </>

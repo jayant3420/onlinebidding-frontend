@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect } from "react";
 import VectorLogo from "../../assets/icons/vector.svg";
 import DownArrow from "../../assets/icons/menuDropdown.svg";
 import LanguageIcon from "../../assets/icons/languageIcon.svg";
@@ -6,14 +6,13 @@ import Avatar from "../../assets/images/Avatar.png";
 import DropDownMenu from "./Dropdown";
 import { getter, clearStorage } from "../../util/storage";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<any>(null);
-  const authContext = useContext(AuthContext);
-  const user = authContext?.user ?? null;
-  const setUserDetail = authContext?.setUserDetail ?? null;
+
+  const user = getter("user");
+  const userJson = user ? JSON.parse(user) : null;
 
   const navigate = useNavigate();
 
@@ -82,7 +81,6 @@ function Header() {
       case "LOG_OUT":
         console.log("Logging out...");
         clearStorage();
-        setUserDetail && setUserDetail(null);
         navigate("/");
         break;
       default:
@@ -127,7 +125,7 @@ function Header() {
                 <img src={DownArrow} alt="Logo" />
               </span>
             </li>
-            {user ? (
+            {userJson ? (
               <li
                 className="nav-item"
                 onClick={handleToggleClick}
@@ -136,8 +134,8 @@ function Header() {
                 <img src={Avatar} alt="logged in user avatar" />
                 {isOpen && (
                   <DropDownMenu
-                    name={`${user.firstName} ${user.lastName}`}
-                    email={user.email}
+                    name={`${userJson.firstName} ${userJson.lastName}`}
+                    email={userJson.email}
                     handleItemClick={handleItemClick}
                   />
                 )}
